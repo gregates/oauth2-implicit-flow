@@ -1,0 +1,21 @@
+{
+  "name": "oauth2-implicit-flow",
+  "version": "0.0.0",
+  "description": "OAuth2 Library for Public Clients (Implicit Flow Only)",
+  "main": "oauth2.js",
+  "dependencies": {
+    "jquery": "^2.1.1"
+  },
+  "devDependencies": {
+    "browserify": "^5.12.0",
+    "karma": "^0.12.23",
+    "karma-jasmine": "^0.2.2",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-story-reporter": "^0.2.2"
+  },
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start --single-run"
+  },
+  "author": "Greg Gates",
+  "license": "MIT"
+}
