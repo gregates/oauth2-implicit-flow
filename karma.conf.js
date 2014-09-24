@@ -15,7 +15,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'spec/**/*Spec.js'
+      { pattern: 'spec/fixtures/**/*', included: false, watched: false },
+      'spec/test-main.js',
+      'spec/factories/*.js',
+      'spec/**/*Spec.js',
     ],
 
 
@@ -33,7 +36,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['story'],
+    reporters: ['progress'],
 
 
     // web server port

@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<script>
+if (window.opener && typeof window.opener.triggerOAuth2Callback === "function") {
+  window.opener.triggerOAuth2Callback(window.location.hash.split("?")[0]);
+}
+</script>
+</body>
+</html>

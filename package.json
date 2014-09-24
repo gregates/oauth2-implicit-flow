@@ -14,7 +14,7 @@
     "karma-story-reporter": "^0.2.2"
   },
   "scripts": {
-    "test": "./node_modules/karma/bin/karma start --single-run"
+    "test": "./node_modules/browserify/bin/cmd.js spec/require-lib.js -o spec/test-main.js && ./node_modules/karma/bin/karma start --browsers Firefox,PhantomJS --single-run"
   },
   "author": "Greg Gates",
   "license": "MIT"
