@@ -5,10 +5,9 @@ describe("Service.authorize()", function() {
 
   beforeEach(function() {
     redirectURI = "http://localhost:9876/base/spec/fixtures/callback.html";
-    token = Math.random().toString(36).substr(2);
     tokenHash = [
       "#state=state",
-      "access_token=" + token,
+      "access_token=xyzzy",
       "&token_type=Bearer",
       "expires_in=3600"
     ].join("&");
@@ -20,6 +19,11 @@ describe("Service.authorize()", function() {
     service.generateStateToken = function() { return "state"; };
   });
 
+  afterEach(function() {
+    localStorage.clear();
+    delete window.triggerOAuth2Callback;
+  });
+
   it("defines callback function on the window", function() {
     service.authorize();
     expect(typeof window.triggerOAuth2Callback).toBe("function");
@@ -27,20 +31,21 @@ describe("Service.authorize()", function() {
 
   it("calls the callback function when the service redirects", function(done) {
     service.authorize();
-    spyOn(window, "triggerOAuth2Callback");
+    spyOn(window, "triggerOAuth2Callback").and.callThrough();
     setTimeout(function() {
       expect(window.triggerOAuth2Callback).toHaveBeenCalledWith(tokenHash);
       done();
     }, 200);
   });
 
-  xit(" creates a token for the service with hash data", function(done) {
+  it("creates a token for the service with hash data", function(done) {
     service.authorize();
     setTimeout(function() {
       expect(service.token).not.toBeNull();
       done();
     }, 200);
   });
+
 });
 
 describe("Service.token", function() {

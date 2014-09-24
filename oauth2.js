@@ -5,8 +5,8 @@ Object.seal(Object.defineProperty(exports, "default", {
     var OAuth2 = { services: {} };
 
     Object.seal(Object.defineProperties(OAuth2, {
-      Token: { __proto__: null, value: require("./token") },
-      Service: { __proto__: null, value: require("./service") }
+      Token: { __proto__: null, value: require("./lib/token") },
+      Service: { __proto__: null, value: require("./lib/service") }
     }));
 
     return OAuth2;
@@ -14,5 +14,3 @@ Object.seal(Object.defineProperty(exports, "default", {
 
   enumerable: true
 }));
-
-window.OAuth2 = exports.default;
