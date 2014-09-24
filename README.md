@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gregates/oauth2-implicit-flow.svg?branch=master)](https://travis-ci.org/gregates/oauth2-implicit-flow)
+
 # Installation
 
 This package is currently published only in a private repository. If you have access to that repository, you may `npm install oauth2-implicit-flow`
