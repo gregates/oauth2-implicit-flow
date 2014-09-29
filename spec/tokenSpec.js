@@ -64,66 +64,66 @@ describe("Token.ajax(url, data)", function() {
     expect(opts.headers.Authorization).toEqual("Bearer " + token.token);
   });
 
-  describe("Token.get(url, data, opts)", function() {
-    it("calls through to jQuery with method: 'GET' and data", function() {
-      var opts = { contentType: "application/json" },
-          data = { foo: "bar" };
-      opts = token.get("http://r.com", data, opts);
+  describe("Token.get(url, data, success)", function() {
+    it("calls through to jQuery with method: 'GET', data, and callback", function() {
+      var data = { foo: "bar" }, callback = function() {};
+      var opts = token.get("http://r.com", data, callback);
       expect($.ajax).toHaveBeenCalledWith("http://r.com", opts);
       expect(opts.data.foo).toEqual("bar")
       expect(opts.headers.Authorization).toEqual("Bearer " + token.token);
       expect(opts.method).toEqual("GET");
+      expect(opts.success).toEqual(callback);
     });
   });
 
-  describe("Token.post(url, data, opts)", function() {
-    it("calls through to jQuery with method: 'POST' and data", function() {
-      var opts = { contentType: "application/json" },
-          data = { foo: "bar" };
-      opts = token.post("http://r.com", data, opts);
+  describe("Token.post(url, data, success)", function() {
+    it("calls through to jQuery with method: 'POST', data, and callback", function() {
+      var data = { foo: "bar" }, callback = function() {};
+      var opts = token.post("http://r.com", data, callback);
       expect($.ajax).toHaveBeenCalledWith("http://r.com", opts);
       expect(opts.data.foo).toEqual("bar")
       expect(opts.headers.Authorization).toEqual("Bearer " + token.token);
       expect(opts.method).toEqual("POST");
+      expect(opts.success).toEqual(callback);
     });
   });
 
   
   describe("Token.put(url, data, opts)", function() {
     it("calls through to jQuery with method: 'POST' and data", function() {
-      var opts = { contentType: "application/json" },
-          data = { foo: "bar" };
-      opts = token.put("http://r.com", data, opts);
+      var data = { foo: "bar" }, callback = function() {};
+      var opts = token.put("http://r.com", data, callback);
       expect($.ajax).toHaveBeenCalledWith("http://r.com", opts);
       expect(opts.data.foo).toEqual("bar")
       expect(opts.headers.Authorization).toEqual("Bearer " + token.token);
       expect(opts.method).toEqual("PUT");
+      expect(opts.success).toEqual(callback);
     });
   });
 
   
   describe("Token.patch(url, data, opts)", function() {
     it("calls through to jQuery with method: 'POST' and data", function() {
-      var opts = { contentType: "application/json" },
-          data = { foo: "bar" };
-      opts = token.patch("http://r.com", data, opts);
+      var data = { foo: "bar" }, callback = function() {};
+      var opts = token.patch("http://r.com", data, callback);
       expect($.ajax).toHaveBeenCalledWith("http://r.com", opts);
       expect(opts.data.foo).toEqual("bar")
       expect(opts.headers.Authorization).toEqual("Bearer " + token.token);
       expect(opts.method).toEqual("PATCH");
+      expect(opts.success).toEqual(callback);
     });
   });
 
   
   describe("Token.delete(url, data, opts)", function() {
     it("calls through to jQuery with method: 'POST' and data", function() {
-      var opts = { contentType: "application/json" },
-          data = { foo: "bar" };
-      opts = token.delete("http://r.com", data, opts);
+      var data = { foo: "bar" }, callback = function() {};
+      var opts = token.delete("http://r.com", data, callback);
       expect($.ajax).toHaveBeenCalledWith("http://r.com", opts);
       expect(opts.data.foo).toEqual("bar")
       expect(opts.headers.Authorization).toEqual("Bearer " + token.token);
       expect(opts.method).toEqual("DELETE");
+      expect(opts.success).toEqual(callback);
     });
   });
 });
