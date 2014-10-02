@@ -1,3 +1,8 @@
+0.0.3
+=====
+
++ Change token.ajax argument signature to accept either a url and an opts hash or just an opts hash (which we expect to have a `url` key).
+
 0.0.2
 =====
 

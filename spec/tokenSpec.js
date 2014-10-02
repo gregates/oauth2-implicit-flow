@@ -47,20 +47,20 @@ describe("Token.ajax(url, data)", function() {
 
   beforeEach(function() {
     token = Token();
-    spyOn($, 'ajax').and.callFake(function(url, opts) {
+    spyOn($, 'ajax').and.callFake(function(opts) {
       return opts;
     });
   });
 
   it("calls through to jQuery", function() {
-    var opts = { contentType: "application/json" };
-    token.ajax("http://r.com", opts);
-    expect($.ajax).toHaveBeenCalledWith("http://r.com", opts);
+    var opts = { url: "http://r.com", contentType: "application/json" };
+    token.ajax(opts);
+    expect($.ajax).toHaveBeenCalledWith(opts);
   });
 
   it("sets token header", function() {
-    var opts = { contentType: "application/json" },
-    opts = token.ajax("http://r.com", opts);
+    var opts = { url: "http://r.com", contentType: "application/json" };
+    token.ajax(opts);
     expect(opts.headers.Authorization).toEqual("Bearer " + token.token);
   });
 
@@ -68,7 +68,7 @@ describe("Token.ajax(url, data)", function() {
     it("calls through to jQuery with method: 'GET', data, and callback", function() {
       var data = { foo: "bar" }, callback = function() {};
       var opts = token.get("http://r.com", data, callback);
-      expect($.ajax).toHaveBeenCalledWith("http://r.com", opts);
+      expect($.ajax).toHaveBeenCalledWith(opts);
       expect(opts.data.foo).toEqual("bar")
       expect(opts.headers.Authorization).toEqual("Bearer " + token.token);
       expect(opts.method).toEqual("GET");
@@ -80,7 +80,7 @@ describe("Token.ajax(url, data)", function() {
     it("calls through to jQuery with method: 'POST', data, and callback", function() {
       var data = { foo: "bar" }, callback = function() {};
       var opts = token.post("http://r.com", data, callback);
-      expect($.ajax).toHaveBeenCalledWith("http://r.com", opts);
+      expect($.ajax).toHaveBeenCalledWith(opts);
       expect(opts.data.foo).toEqual("bar")
       expect(opts.headers.Authorization).toEqual("Bearer " + token.token);
       expect(opts.method).toEqual("POST");
@@ -93,7 +93,7 @@ describe("Token.ajax(url, data)", function() {
     it("calls through to jQuery with method: 'POST' and data", function() {
       var data = { foo: "bar" }, callback = function() {};
       var opts = token.put("http://r.com", data, callback);
-      expect($.ajax).toHaveBeenCalledWith("http://r.com", opts);
+      expect($.ajax).toHaveBeenCalledWith(opts);
       expect(opts.data.foo).toEqual("bar")
       expect(opts.headers.Authorization).toEqual("Bearer " + token.token);
       expect(opts.method).toEqual("PUT");
@@ -106,7 +106,7 @@ describe("Token.ajax(url, data)", function() {
     it("calls through to jQuery with method: 'POST' and data", function() {
       var data = { foo: "bar" }, callback = function() {};
       var opts = token.patch("http://r.com", data, callback);
-      expect($.ajax).toHaveBeenCalledWith("http://r.com", opts);
+      expect($.ajax).toHaveBeenCalledWith(opts);
       expect(opts.data.foo).toEqual("bar")
       expect(opts.headers.Authorization).toEqual("Bearer " + token.token);
       expect(opts.method).toEqual("PATCH");
@@ -119,7 +119,7 @@ describe("Token.ajax(url, data)", function() {
     it("calls through to jQuery with method: 'POST' and data", function() {
       var data = { foo: "bar" }, callback = function() {};
       var opts = token.delete("http://r.com", data, callback);
-      expect($.ajax).toHaveBeenCalledWith("http://r.com", opts);
+      expect($.ajax).toHaveBeenCalledWith(opts);
       expect(opts.data.foo).toEqual("bar")
       expect(opts.headers.Authorization).toEqual("Bearer " + token.token);
       expect(opts.method).toEqual("DELETE");

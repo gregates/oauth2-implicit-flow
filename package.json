@@ -1,6 +1,6 @@
 {
   "name": "oauth2-implicit-flow",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "OAuth2 Library for Public Clients (Implicit Flow Only)",
   "main": "oauth2.js",
   "dependencies": {
