@@ -1,3 +1,13 @@
+0.0.5
+=====
+
++ Initial release to npm registry.
+
+0.0.4
+=====
+
++ Fixed a bug with token.ajax http verbs.
+
 0.0.3
 =====
 

@@ -1,8 +1,27 @@
 {
   "name": "oauth2-implicit-flow",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "OAuth2 Library for Public Clients (Implicit Flow Only)",
+  "homepage": "https://github.com/gregates/oauth2-implicit-flow",
   "main": "oauth2.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gregates/oauth2-implicit-flow.git"
+  },
+  "author": {
+    "name": "Greg Gates",
+    "email": "greg@webkite.com"
+  },
+  "contributors": [
+    {
+      "name": "Greg Gates",
+      "email": "greg@webkite.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/gregates/oauth2-implicit-flow/issues"
+  },
   "dependencies": {
     "jquery": "^2.1.1"
   },
@@ -16,11 +35,5 @@
   },
   "scripts": {
     "test": "./node_modules/browserify/bin/cmd.js spec/require-lib.js -o spec/test-main.js && ./node_modules/karma/bin/karma start --browsers Firefox,PhantomJS --single-run"
-  },
-  "author": "Greg Gates",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gregates/oauth2-implicit-flow.git"
   }
 }
