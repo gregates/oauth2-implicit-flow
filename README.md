@@ -2,9 +2,11 @@
 
 # Installation
 
-This package is currently published only in a private repository. If you have access to that repository, you may `npm install oauth2-implicit-flow`
+`npm install oauth2-implicit-flow --save`
 
 # Usage
+
+This package is intended to be used in the browser, with [browserify](http://browserify.org/).
 
 ```
 var OAuth2 = require('oauth2-implicit-flow').default;
